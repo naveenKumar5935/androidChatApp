@@ -46,18 +46,22 @@
             android:layout_margin="10sp">
 
             <EditText
-                android:id="@+id/editTextTextPersonName"
+                android:id="@+id/phoneBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/textbox"
                 android:ems="10"
+                android:hint="Phone No."
                 android:inputType="textPersonName"
-                android:text="Name" />
+                android:padding="8dp" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/buttonContinue"
+                android:layout_marginTop="10sp"
+                android:backgroundTint="@color/teal_700"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Button" />
+                android:text="Continue" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
