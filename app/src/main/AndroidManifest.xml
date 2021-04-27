@@ -10,10 +10,12 @@
         android:usesCleartextTraffic="true"
         android:supportsRtl="true"
         android:theme="@style/Theme.ChatAppAndroid">
-        <activity android:name=".OtpActivity">
+        <activity android:name=".OtpActivity"
+            android:windowSoftInputMode="stateVisible">
 
         </activity>
-        <activity android:name=".PhoneActivity">
+        <activity android:name=".PhoneActivity"
+            android:windowSoftInputMode="stateVisible">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

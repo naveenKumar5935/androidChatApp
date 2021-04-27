@@ -52,9 +52,9 @@
                 android:layout_gravity="center"
                 android:inputType="number"
                 android:itemBackground="@color/grey"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 app:OtpItemCount="6"
-                app:OtpLineColor="@color/white"
+                app:OtpLineColor="@color/black"
                 app:OtpViewType="line" />
 
             <Button

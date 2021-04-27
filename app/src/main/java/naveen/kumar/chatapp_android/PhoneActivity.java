@@ -19,6 +19,7 @@ public class PhoneActivity extends AppCompatActivity {
         binding = ActivityPhoneBinding.inflate(getLayoutInflater());
 
         setContentView(binding.getRoot());
+        binding.phoneBox.requestFocus();
 
         binding.buttonContinue.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -3,7 +3,10 @@ package naveen.kumar.chatapp_android;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -32,6 +35,8 @@ public class OtpActivity extends AppCompatActivity {
         binding = ActivityOtpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        binding.otpView.requestFocus();
+
         String phoneNo = getIntent().getStringExtra("phoneNumber");
         binding.otpPhoneView.setText("Verify: "+phoneNo);
 
@@ -55,6 +60,9 @@ public class OtpActivity extends AppCompatActivity {
                     @Override
                     public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                         super.onCodeSent(s, forceResendingToken);
+                        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,0);
+                        binding.otpView.requestFocus();
                         demoOtpEntered = s;
                     }
                 }).build();
@@ -64,6 +72,7 @@ public class OtpActivity extends AppCompatActivity {
         binding.otpView.setOtpCompletionListener(new OnOtpCompletionListener() {
             @Override
             public void onOtpCompleted(String otp) {
+
                 PhoneAuthCredential credential = PhoneAuthProvider.getCredential(demoOtpEntered,otp);
                 auth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -72,6 +81,7 @@ public class OtpActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(),"successful",Toast.LENGTH_LONG).show();
                         }else {
                             Toast.makeText(getApplicationContext(),"failed",Toast.LENGTH_LONG).show();
+
 
                         }
                     }
