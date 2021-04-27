@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1058042675741",
+    "project_id": "androidchatapp-f5fb4",
+    "storage_bucket": "androidchatapp-f5fb4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1058042675741:android:53ee2fee0412c634667cf4",
+        "android_client_info": {
+          "package_name": "naveen.kumar.chatapp_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1058042675741-13oh5dd0877cp8rtaer6p1hrvkph3os7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLUs9X7JwdcHTxcYLu6SvFTdauUm_JNNQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1058042675741-13oh5dd0877cp8rtaer6p1hrvkph3os7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
