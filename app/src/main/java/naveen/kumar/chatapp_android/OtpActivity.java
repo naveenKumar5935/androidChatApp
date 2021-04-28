@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
@@ -28,12 +30,18 @@ public class OtpActivity extends AppCompatActivity {
     ActivityOtpBinding binding;
     FirebaseAuth auth;
     String demoOtpEntered;
+    ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityOtpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        dialog = new ProgressDialog(OtpActivity.this);
+        dialog.setMessage("Sending Otp...");
+        dialog.setCancelable(false);
+        dialog.show();
 
         binding.otpView.requestFocus();
 
@@ -60,6 +68,7 @@ public class OtpActivity extends AppCompatActivity {
                     @Override
                     public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                         super.onCodeSent(s, forceResendingToken);
+                        dialog.dismiss();
                         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,0);
                         binding.otpView.requestFocus();
@@ -86,6 +95,15 @@ public class OtpActivity extends AppCompatActivity {
                         }
                     }
                 });
+            }
+        });
+
+        binding.buttonContinue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OtpActivity.this,UserProfilesActivity.class);
+                startActivity(intent);
+                finishAffinity(); //ends all previous activity
             }
         });
 
